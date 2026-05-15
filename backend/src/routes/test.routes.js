@@ -1,11 +1,8 @@
 import { Router } from "express"
+import { testController } from "../controllers/test.controller.js"
 
 const testRoute = Router()
 
-testRoute.get("/", async function(req, res) {
-    res.json({
-        message: "Test api is working"
-    })
-})
+testRoute.get("/", testController)
 
 export default testRoute
