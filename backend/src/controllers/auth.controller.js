@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import { authMiddleware } from "../middleware/auth.middleware.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs"
 import dotenv from "dotenv"
@@ -82,4 +83,11 @@ export async function login(req, res) {
             error: error.message
         })
     }
+}
+
+export async function getme(req ,res) {
+    return res.status(200).json({
+            success: true,
+            userId: req.user.userId
+    });
 }
